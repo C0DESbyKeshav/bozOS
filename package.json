@@ -1,0 +1,14 @@
+{
+  "name": "bozos",
+  "version": "1.0.0",
+  "description": "Desktop environment in the browser.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C0DESbyKeshav/bozOS.git"
+  },
+  "license": "MIT",
+  "author": "Keshav Mandal",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
