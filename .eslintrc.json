@@ -27,6 +27,7 @@
     ],
     "rules": {
       "comma-dangle": "off",
+      "quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
       "react/jsx-props-no-spreading": "off"
     },
