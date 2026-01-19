@@ -22,15 +22,18 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "react", "simple-import-sort"],
   "rules": {
+    "max-lines": ["error", 80],
     "quotes": [
       "error",
       "double",
       { "avoidEscape": true, "allowTemplateLiterals": true }
     ],
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error"
   },
   "settings": {
     "import/parsers": {
