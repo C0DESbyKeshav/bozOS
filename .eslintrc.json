@@ -25,6 +25,7 @@
   "plugins": ["@typescript-eslint", "react", "simple-import-sort"],
   "rules": {
     "max-lines": ["error", 80],
+    "no-extra-semi": "error",
     "quotes": [
       "error",
       "double",
