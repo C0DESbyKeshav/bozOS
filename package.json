@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "eslint": "eslint .",
-    "stylelint": "stylelint **/*.scss",
+    "stylelint": "stylelint **/*.tsx",
     "prettier": "prettier --write .",
     "prepare": "husky",
     "test": "jest",
@@ -23,7 +23,7 @@
     "next": "^16.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.97.2"
+    "styled-components": "^6.3.8"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
@@ -31,8 +31,10 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^25.0.8",
     "@types/react": "^19.2.8",
+    "@types/styled-components": "^5.1.36",
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "@typescript-eslint/parser": "^8.53.0",
+    "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^10.1.8",
@@ -52,11 +54,13 @@
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-config-standard": "^22.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "typescript": "^5.9.3"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown",
     "*.{js,ts,tsx}": "eslint --fix",
-    "*.scss": "stylelint --fix"
+    "*.tsx": "stylelint"
   }
 }
