@@ -1,3 +1,4 @@
 {
-  "json.validate.enable": false
+  "json.validate.enable": false,
+  "stylelint.validate": ["typescript", "typescriptreact"]
 }
