@@ -26,6 +26,7 @@
   },
   "plugins": ["@typescript-eslint", "jest", "react", "simple-import-sort"],
   "rules": {
+    "comma-dangle": ["error", "never"],
     "import/extensions": [
       "error",
       "ignorePackages",
