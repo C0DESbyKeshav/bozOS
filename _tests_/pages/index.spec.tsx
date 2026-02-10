@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
-import { theme } from "pages/_app";
 import Index from "pages/index";
 import { ThemeProvider } from "styled-components";
+import defaultTheme from "themes/default.json";
 
 test("renders index page", () => {
   const { getByText } = render(
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defaultTheme}>
       <Index />
     </ThemeProvider>
   );
