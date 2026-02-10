@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const theme = {
+export const theme = {
   colors: {
     primary: "#bf4f74"
   }
