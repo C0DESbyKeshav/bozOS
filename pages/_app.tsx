@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { description, name } from "package.json";
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import defaultTheme from "themes/default.json";
 

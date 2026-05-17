@@ -7,10 +7,14 @@
   },
   "extends": [
     "airbnb",
+    "airbnb/hooks",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
     "plugin:jest/recommended",
+    "plugin:jest-dom/recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "prettier"
   ],
   "globals": {
@@ -24,8 +28,18 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "jest", "react", "simple-import-sort"],
+  "plugins": [
+    "@typescript-eslint",
+    "jest",
+    "jest-dom",
+    "react",
+    "simple-import-sort"
+  ],
   "rules": {
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { "prefer": "type-imports" }
+    ],
     "comma-dangle": ["error", "never"],
     "import/extensions": [
       "error",
@@ -40,7 +54,12 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["**/*.spec.*", "**/_tests_/**", "jest.setup.js"]
+        "devDependencies": [
+          "**/*.spec.*",
+          "**/*.test.*",
+          "**/__tests__/**",
+          "jest.setup.js"
+        ]
       }
     ],
     "max-lines": ["error", 80],
@@ -48,9 +67,17 @@
     "quotes": [
       "error",
       "double",
-      { "avoidEscape": true, "allowTemplateLiterals": true }
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
     ],
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
     "react/jsx-props-no-spreading": "off",
     "semi": ["error", "always"],
     "simple-import-sort/exports": "error",
@@ -63,5 +90,17 @@
     "import/resolver": {
       "typescript": {}
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.spec.ts",
+        "**/*.spec.tsx"
+      ],
+      "extends": ["plugin:testing-library/react"],
+      "plugins": ["testing-library"]
+    }
+  ]
 }
