@@ -2,6 +2,12 @@
   "name": "bozos",
   "version": "1.0.0",
   "description": "Desktop environment in the browser.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C0DESbyKeshav/bozOS.git"
+  },
+  "author": "Keshav Mandal",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,12 +20,16 @@
     "test:watch": "jest --watch",
     "check": "npm run eslint && npm run prettier && npx lint-staged && npx tsc --noEmit && npm run test && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/C0DESbyKeshav/bozOS.git"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
-  "author": "Keshav Mandal",
-  "license": "MIT",
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.{js,ts,tsx}": "eslint --fix",
+    "*.tsx": "stylelint --fix"
+  },
   "dependencies": {
     "next": "^16.1.1",
     "react": "^18.2.0",
@@ -59,10 +69,5 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "typescript": "^5.9.3"
-  },
-  "lint-staged": {
-    "*": "prettier --write --ignore-unknown",
-    "*.{js,ts,tsx}": "eslint --fix",
-    "*.tsx": "stylelint --fix"
   }
 }
