@@ -1,13 +1,12 @@
 import { render, screen } from "@testing-library/react";
+import StyledApp from "components/pages/StyledApp";
 import Index from "pages/index";
-import { ThemeProvider } from "styled-components";
-import defaultTheme from "themes/default.json";
 
 test("renders index page", () => {
   render(
-    <ThemeProvider theme={defaultTheme}>
+    <StyledApp>
       <Index />
-    </ThemeProvider>
+    </StyledApp>
   );
 
   const helloWorldElement = screen.getByText("Hello Keshav!");

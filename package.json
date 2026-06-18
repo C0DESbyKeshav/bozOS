@@ -11,7 +11,8 @@
     "prettier": "prettier --write .",
     "prepare": "husky",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "check": "npm run eslint && npm run prettier && npx lint-staged && npx tsc --noEmit && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
