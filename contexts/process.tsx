@@ -12,4 +12,4 @@ export const ProcessProvider: FC<PropsWithChildren> = ({ children }) => (
   </ProcessContext.Provider>
 );
 
-export default ProcessContext.Consumer;
+export const ProcessConsumer = ProcessContext.Consumer;
