@@ -1,11 +1,7 @@
-import type { PropsWithChildren } from "react";
+import type { ReactNode } from "react";
+import type { DefaultTheme } from "styled-components";
 
-export type Theme = {
-  colors: {
-    primary: string;
-  };
+export type StyledAppProps = {
+  children: ReactNode;
+  theme?: DefaultTheme;
 };
-
-export type StyledAppProps = PropsWithChildren<{
-  theme?: Theme;
-}>;
