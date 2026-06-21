@@ -1,7 +1,8 @@
 {
   "default": {
     "colors": {
-      "primary": "#bf4f74"
+      "primary": "#bf4f74",
+      "window": "#808080"
     }
   }
 }
