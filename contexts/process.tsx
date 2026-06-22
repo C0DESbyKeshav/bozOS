@@ -2,9 +2,12 @@ import useProcessContextState from "hooks/useProcessContextState";
 import type { FC, PropsWithChildren } from "react";
 import { createContext } from "react";
 import type { ProcessContextState } from "types/contexts/process";
+import { initialProcessContextState } from "utils/initialContextStates";
 import processDirectory from "utils/processDirectory";
 
-const ProcessContext = createContext<ProcessContextState>({ processes: {} });
+const ProcessContext = createContext<ProcessContextState>(
+  initialProcessContextState
+);
 
 export const ProcessProvider: FC<PropsWithChildren> = ({ children }) => (
   <ProcessContext.Provider value={useProcessContextState(processDirectory)}>
