@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig",
     "styled-components.vscode-styled-components",
     "stylelint.vscode-stylelint"
   ]
