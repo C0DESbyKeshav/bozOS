@@ -1,12 +1,8 @@
-/** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true,
-
-  compiler: {
-    styledComponents: {
-      ssr: true,
-      displayName: true,
-      pure: true
-    }
-  }
+  i18n: {
+    localeDetection: false,
+    locales: ["en"],
+    defaultLocale: "en"
+  },
+  reactStrictMode: true
 };
