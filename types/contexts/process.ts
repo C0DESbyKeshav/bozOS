@@ -10,8 +10,3 @@ export type Processes = {
 export type ProcessContextState = {
   processes: Processes;
 };
-
-export type ProcessProviderProps = {
-  children: React.ReactNode;
-  startupProcesses: Processes;
-};
