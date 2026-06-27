@@ -1,7 +1,6 @@
-import type { FC, PropsWithChildren } from "react";
 import StyledWindow from "styles/components/system/StyledWindow";
 
-const Window: FC<PropsWithChildren> = ({ children }) => (
+const Window: React.FC<React.PropsWithChildren> = ({ children }) => (
   <StyledWindow>{children}</StyledWindow>
 );
 

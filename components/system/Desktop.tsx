@@ -1,7 +1,6 @@
-import type { FC, PropsWithChildren } from "react";
 import StyledDesktop from "styles/components/system/StyledDesktop";
 
-const Desktop: FC<PropsWithChildren> = ({ children }) => (
+const Desktop: React.FC<React.PropsWithChildren> = ({ children }) => (
   <StyledDesktop>{children}</StyledDesktop>
 );
 
