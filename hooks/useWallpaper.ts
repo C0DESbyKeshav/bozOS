@@ -4,8 +4,7 @@ import { ThemeContext } from "styled-components";
 const useWallpaper = (
   desktopRef: React.RefObject<HTMLElement | null>
 ): void => {
-  const theme = useContext(ThemeContext);
-  const wallpaper = theme?.wallpaper;
+  const { wallpaper } = useContext(ThemeContext)!;
 
   useEffect(() => {
     wallpaper?.(desktopRef.current);
