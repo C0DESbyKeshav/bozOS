@@ -6,7 +6,6 @@ const useWallpaper = (desktopRef: React.RefObject<HTMLElement>): void => {
   const wallpaper = theme?.wallpaper;
 
   useEffect(() => {
-    if (process.env.NODE_ENV === "test") return;
     wallpaper?.(desktopRef);
   }, [desktopRef, wallpaper]);
 };
