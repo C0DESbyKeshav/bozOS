@@ -18,7 +18,7 @@
     "prepare": "husky",
     "test": "jest",
     "test:watch": "jest --watch",
-    "check": "npm run eslint && npm run prettier && npx lint-staged && npx tsc --noEmit && npm run test && npm run build"
+    "check": "npm run prettier && npm run eslint && npx lint-staged && npx tsc --noEmit && npm run test && npm run build"
   },
   "husky": {
     "hooks": {
