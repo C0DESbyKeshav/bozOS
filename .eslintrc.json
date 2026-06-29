@@ -13,6 +13,7 @@
     "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:jest-dom/recommended",
+    "plugin:prettier/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "prettier"
@@ -32,6 +33,7 @@
     "@typescript-eslint",
     "jest",
     "jest-dom",
+    "prettier",
     "react",
     "simple-import-sort"
   ],
@@ -41,7 +43,6 @@
       { "prefer": "type-imports" }
     ],
     "@typescript-eslint/no-explicit-any": "off",
-    "comma-dangle": ["error", "never"],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -83,7 +84,6 @@
     "react/jsx-no-constructed-context-values": "off",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
-    "semi": ["error", "always"],
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error"
   },
