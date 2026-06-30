@@ -13,12 +13,12 @@
     "build": "next build",
     "start": "next start",
     "eslint": "eslint .",
-    "stylelint": "stylelint **/*.tsx",
+    "stylelint": "stylelint **/*.ts",
     "prettier": "prettier --write .",
     "prepare": "husky",
     "test": "jest",
     "test:watch": "jest --watch",
-    "check": "npm run prettier && npm run eslint && npx lint-staged && npx tsc --noEmit && npm run test && npm run build"
+    "check": "npm run prettier && npm run eslint && npm run stylelint && npx lint-staged && npx tsc --noEmit && npm run test && npm run build"
   },
   "husky": {
     "hooks": {
@@ -28,7 +28,7 @@
   "lint-staged": {
     "*": "prettier --write --ignore-unknown",
     "*.{js,ts,tsx}": "eslint --fix",
-    "*.tsx": "stylelint --fix"
+    "*.ts": "stylelint --fix"
   },
   "dependencies": {
     "next": "^16.1.1",
