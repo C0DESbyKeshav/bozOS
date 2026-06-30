@@ -3,7 +3,6 @@ import styled from "styled-components";
 const StyledStartButton = styled.button.attrs({
   type: "button"
 })`
-  background-color: #5cbf55;
   display: flex;
   height: 100%;
   left: 0;
