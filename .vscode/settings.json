@@ -1,5 +1,7 @@
 {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "js/ts.tsdk.path": "node_modules\\typescript\\lib",
   "json.validate.enable": false,
-  "stylelint.validate": ["typescript", "typescriptreact"],
-  "js/ts.tsdk.path": "node_modules\\typescript\\lib"
+  "stylelint.validate": ["typescript", "typescriptreact"]
 }
