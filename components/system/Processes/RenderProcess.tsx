@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import type { JSX } from "react/jsx-runtime";
-import type { Process } from "types/contexts/process";
 
 const Window = dynamic(() => import("components/system/Window"));
 
@@ -10,7 +9,15 @@ const withWindow = (Component: React.ComponentType) => (
   </Window>
 );
 
-const RenderProcess = ({ Component, hasWindow }: Process): JSX.Element =>
+type RenderProcessProps = {
+  Component: React.ComponentType;
+  hasWindow: boolean;
+};
+
+const RenderProcess = ({
+  Component,
+  hasWindow
+}: RenderProcessProps): JSX.Element =>
   hasWindow ? withWindow(Component) : <Component />;
 
 export default RenderProcess;
