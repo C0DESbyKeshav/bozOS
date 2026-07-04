@@ -90,6 +90,7 @@
       }
     ],
     "react/jsx-no-constructed-context-values": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error"
