@@ -92,6 +92,7 @@
     "react/jsx-no-constructed-context-values": "off",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
+    "react/require-default-props": "off",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error"
   },
