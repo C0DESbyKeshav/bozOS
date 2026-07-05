@@ -2,6 +2,7 @@ import { useProcesses } from "contexts/process";
 import { useCallback } from "react";
 import type { JSX } from "react/jsx-runtime";
 import Button from "styles/common/Button";
+import Image from "styles/common/Image";
 import StyledTaskbarEntry from "styles/components/system/Taskbar/StyledTaskbarEntry";
 
 type TaskbarEntryProps = {
@@ -18,7 +19,7 @@ const TaskbarEntry = ({ icon, id, title }: TaskbarEntryProps): JSX.Element => {
     <StyledTaskbarEntry>
       <Button onClick={onClick}>
         <figure>
-          <img src={icon} alt={title} />
+          <Image src={icon} alt={title} />
           <figcaption>{title}</figcaption>
         </figure>
       </Button>
