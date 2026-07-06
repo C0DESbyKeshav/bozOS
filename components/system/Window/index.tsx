@@ -2,12 +2,16 @@ import type { ProcessComponentProps } from "components/system/Processes/RenderPr
 import Titlebar from "components/system/Window/Titlebar";
 import { useProcesses } from "contexts/process";
 import useDraggableAndResizable from "hooks/useDraggableAndResizable";
-import { type PropsWithChildren } from "react";
+import type { JSX } from "react";
 import { Rnd } from "react-rnd";
 import StyledWindow from "styles/components/system/Window/StyledWindow";
 import rndDefaults from "utils/rndDefaults";
 
-const Window = ({ children, id }: PropsWithChildren<ProcessComponentProps>) => {
+type WindowProps = ProcessComponentProps & {
+  children: React.ReactNode;
+};
+
+const Window = ({ children, id }: WindowProps): JSX.Element => {
   const {
     processes: {
       [id]: { maximized, minimized }
