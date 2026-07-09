@@ -24,7 +24,7 @@ const StyledTaskbarEntry = styled.li`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.taskbarHover};
+    color: ${({ theme }) => theme.colors.taskbar.hover};
   }
 `;
 
