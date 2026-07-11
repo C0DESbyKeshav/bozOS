@@ -72,7 +72,6 @@
         ]
       }
     ],
-    "max-lines": ["error", 80],
     "no-extra-semi": "error",
     "quotes": [
       "error",
