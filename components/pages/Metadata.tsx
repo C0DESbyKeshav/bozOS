@@ -1,6 +1,8 @@
 import Head from "next/head";
-import { description, name } from "package.json";
+import packageJson from "package.json";
 import type { JSX } from "react/jsx-runtime";
+
+const { description, name } = packageJson;
 
 const Metadata = (): JSX.Element => (
   <Head>
