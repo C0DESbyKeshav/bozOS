@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import type { JSX } from "react";
 import { useCallback, useState } from "react";
 import type { Process, Processes } from "utils/processDirectory";

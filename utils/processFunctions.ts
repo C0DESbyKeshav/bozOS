@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import type { Processes } from "utils/processDirectory";
 import processDirectory from "utils/processDirectory";
 
