@@ -1,10 +1,10 @@
 import { CloseIcon, MaximizeIcon, MinimizeIcon } from "components/system/Icons";
+import StyledTitlebar from "components/system/Window/Titlebar/StyledTitlebar";
+import useWindowActions from "components/system/Window/Titlebar/useWindowActions";
 import { useProcesses } from "contexts/process";
-import useWindowActions from "hooks/useWindowActions";
 import type { JSX } from "react/jsx-runtime";
 import Button from "styles/common/Button";
 import Image from "styles/common/Image";
-import StyledTitlebar from "styles/components/system/Window/StyledTitlebar";
 
 type TitlebarProps = {
   id: string;

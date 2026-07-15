@@ -1,7 +1,7 @@
-import useClock from "hooks/useClock";
-import useLocaleDateTime from "hooks/useLocaleDateTime";
+import StyledClock from "components/system/Taskbar/Clock/StyledClock";
+import useClock from "components/system/Taskbar/Clock/useClock";
+import useLocaleDateTime from "components/system/Taskbar/Clock/useLocaleDateTime";
 import type { JSX } from "react/jsx-runtime";
-import StyledClock from "styles/components/system/Taskbar/StyledClock";
 
 const Clock = (): JSX.Element => {
   const now = useClock();

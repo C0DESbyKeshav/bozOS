@@ -1,7 +1,7 @@
-import useWallpaper from "hooks/useWallpaper";
+import StyledDesktop from "components/system/Desktop/StyledDesktop";
+import useWallpaper from "components/system/Desktop/wallpapers/useWallpaper";
 import type { JSX } from "react";
 import { useRef } from "react";
-import StyledDesktop from "styles/components/system/StyledDesktop";
 
 type DesktopProps = {
   children: React.ReactNode;
