@@ -1,13 +1,13 @@
 /* eslint-disable import/no-cycle */
-import type { JSX } from "react";
-import { useCallback, useState } from "react";
-import type { Process, Processes } from "utils/processDirectory";
+import type { Process, Processes } from "contexts/process/directory";
 import {
   closeProcess,
   maximizeProcess,
   minimizeProcess,
   openProcess
-} from "utils/processFunctions";
+} from "contexts/process/functions";
+import type { JSX } from "react";
+import { useCallback, useState } from "react";
 
 type ProcessesMap = (
   callback: ([id, process]: [string, Process]) => JSX.Element
