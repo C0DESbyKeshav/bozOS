@@ -11,7 +11,7 @@ import type {
 import { useFileSystem } from "contexts/fileSystem";
 import { extname } from "path";
 import { useCallback, useEffect, useState } from "react";
-import { bufferToUrl, loadScript } from "utils/functions";
+import { bufferToUrl, loadFiles } from "utils/functions";
 
 const useV86 = (
   url: string,
@@ -27,7 +27,7 @@ const useV86 = (
 
     fs?.readFile(url, (_error, contents = Buffer.from("")) => {
       if (!isMounted) return;
-      loadScript("/libs/v86/libv86.js", () => {
+      loadFiles(["/libs/v86/libv86.js"]).then(() => {
         if (!isMounted) return;
         const isISO = extname(url).toLowerCase() === ".iso";
 
