@@ -13,8 +13,12 @@ type WindowStates = {
 };
 
 export type SessionContextState = {
+  foregroundId: string;
+  setForegroundId: React.Dispatch<React.SetStateAction<string>>;
+  setStackOrder: React.Dispatch<React.SetStateAction<string[]>>;
   setThemeName: React.Dispatch<React.SetStateAction<string>>;
   setWindowStates: React.Dispatch<React.SetStateAction<WindowStates>>;
+  stackOrder: string[];
   themeName: string;
   windowStates: WindowStates;
 };
@@ -24,13 +28,18 @@ const SYSTEM_FILE = "/session.json";
 const useSessionContextState = (): SessionContextState => {
   const { fs } = useFileSystem();
   const [sessionLoaded, setSessionLoaded] = useState(false);
+  const [foregroundId, setForegroundId] = useState("");
+  const [stackOrder, setStackOrder] = useState<string[]>([]);
   const [themeName, setThemeName] = useState("");
   const [windowStates, setWindowStates] = useState<WindowStates>({});
 
   useEffect(() => {
     if (sessionLoaded)
-      fs?.writeFile(SYSTEM_FILE, JSON.stringify({ themeName, windowStates }));
-  }, [fs, sessionLoaded, themeName, windowStates]);
+      fs?.writeFile(
+        SYSTEM_FILE,
+        JSON.stringify({ foregroundId, stackOrder, themeName, windowStates })
+      );
+  }, [fs, foregroundId, sessionLoaded, stackOrder, themeName, windowStates]);
 
   useEffect(
     () =>
@@ -47,7 +56,16 @@ const useSessionContextState = (): SessionContextState => {
     [fs]
   );
 
-  return { setThemeName, setWindowStates, themeName, windowStates };
+  return {
+    foregroundId,
+    setForegroundId,
+    setStackOrder,
+    setThemeName,
+    setWindowStates,
+    stackOrder,
+    themeName,
+    windowStates
+  };
 };
 
 export default useSessionContextState;
