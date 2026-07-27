@@ -11,7 +11,7 @@ import type {
 import { useFileSystem } from "contexts/fileSystem";
 import { extname } from "path";
 import { useCallback, useEffect, useState } from "react";
-import { bufferToUrl, loadFiles } from "utils/functions";
+import { bufferToUrl, cleanUpBufferUrl, loadFiles } from "utils/functions";
 
 const useV86 = (
   url: string,
@@ -22,37 +22,48 @@ const useV86 = (
   const { fs } = useFileSystem();
 
   useEffect(() => {
-    let initializedEmulator: V86Starter | null = null;
+    let v86: V86Starter | null = null;
     let isMounted = true;
 
-    fs?.readFile(url, (_error, contents = Buffer.from("")) => {
-      if (!isMounted) return;
-      loadFiles(["/libs/v86/libv86.js"]).then(() => {
+    // Guard check inside the main execution path
+    if (fs && url && screenContainer?.current) {
+      fs.readFile(url, (_error, contents = Buffer.from("")) => {
         if (!isMounted) return;
-        const isISO = extname(url).toLowerCase() === ".iso";
 
-        initializedEmulator = new (window as WindowWithV86Starter).V86Starter({
-          memory_size: 256 * 1024 * 1024,
-          vga_memory_size: 8 * 1024 * 1024,
-          boot_order: isISO ? BOOT_CD_FD_HD : BOOT_FD_CD_HD,
-          [isISO ? "cdrom" : "fda"]: {
-            async: false,
-            size: contents.length,
-            url: bufferToUrl(contents),
-            use_parts: false
-          },
-          screen_container: screenContainer.current,
-          ...v86Config
+        loadFiles(["/libs/v86/libv86.js"]).then(() => {
+          if (!isMounted) return;
+
+          const isISO = extname(url).toLowerCase() === ".iso";
+          const bufferUrl = bufferToUrl(contents);
+
+          v86 = new (window as WindowWithV86Starter).V86Starter({
+            memory_size: 256 * 1024 * 1024,
+            vga_memory_size: 8 * 1024 * 1024,
+            boot_order: isISO ? BOOT_CD_FD_HD : BOOT_FD_CD_HD,
+            [isISO ? "cdrom" : "fda"]: {
+              async: false,
+              size: contents.length,
+              url: bufferUrl,
+              use_parts: false
+            },
+            screen_container: screenContainer.current,
+            ...v86Config
+          });
+
+          v86.add_listener("emulator-loaded", () =>
+            cleanUpBufferUrl(bufferUrl)
+          );
+
+          setEmulator(v86);
         });
-
-        setEmulator(initializedEmulator);
       });
-    });
+    }
 
+    // Always returns a cleanup function, resolving the ESLint error
     return () => {
       isMounted = false;
-      if (initializedEmulator) {
-        initializedEmulator.destroy?.();
+      if (v86) {
+        (v86 as V86Starter).destroy?.();
       }
     };
   }, [fs, screenContainer, url]);
