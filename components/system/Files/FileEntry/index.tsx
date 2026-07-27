@@ -16,13 +16,15 @@ type FileEntryProps = {
 const FileEntry = ({ name, path }: FileEntryProps): JSX.Element => {
   const { icon, pid, url } = useFileInfo(path);
   const { setForegroundId } = useSession();
-  const { open, processes } = useProcesses();
+  const { minimize, open, processes } = useProcesses();
   const onClick = useCallback(() => {
     const id = createPid(pid, url);
 
-    if (processes[id]) setForegroundId(id);
-    else open(pid, url);
-  }, [open, pid, processes, setForegroundId, url]);
+    if (processes[id]) {
+      if (processes[id].minimized) minimize(id);
+      setForegroundId(id);
+    } else open(pid, url);
+  }, [minimize, open, pid, processes, setForegroundId, url]);
 
   return (
     <Button onClick={useDoubleClick(onClick)}>
