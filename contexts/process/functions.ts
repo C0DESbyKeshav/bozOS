@@ -1,5 +1,10 @@
 /* eslint-disable import/no-cycle */
-import type { Processes } from "contexts/process/directory";
+import type {
+  Process,
+  ProcessElements,
+  Processes,
+  ProcessToggles
+} from "contexts/process/directory";
 import processDirectory from "contexts/process/directory";
 
 export const closeProcess =
@@ -23,8 +28,21 @@ export const openProcess =
         };
   };
 
+export const setProcessSettings =
+  (processId: string, settings: Partial<Process>) =>
+  (currentProcesses: Processes): Processes => {
+    const { ...newProcesses } = currentProcesses;
+
+    newProcesses[processId] = {
+      ...newProcesses[processId],
+      ...settings
+    };
+
+    return newProcesses;
+  };
+
 export const toggleProcessSetting =
-  (processId: string, setting: "maximized" | "minimized") =>
+  (processId: string, setting: keyof ProcessToggles) =>
   (currentProcesses: Processes): Processes => {
     const { ...newProcesses } = currentProcesses;
 
@@ -35,10 +53,15 @@ export const toggleProcessSetting =
 
 export const maximizeProcess =
   (processId: string) =>
-  (processes: Processes): Processes =>
-    toggleProcessSetting(processId, "maximized")(processes);
+  (currentProcesses: Processes): Processes =>
+    toggleProcessSetting(processId, "maximized")(currentProcesses);
 
 export const minimizeProcess =
   (processId: string) =>
-  (processes: Processes): Processes =>
-    toggleProcessSetting(processId, "minimized")(processes);
+  (currentProcesses: Processes): Processes =>
+    toggleProcessSetting(processId, "minimized")(currentProcesses);
+
+export const setProcessElement =
+  (processId: string, name: keyof ProcessElements, element: HTMLElement) =>
+  (currentProcesses: Processes): Processes =>
+    setProcessSettings(processId, { [name]: element })(currentProcesses);
