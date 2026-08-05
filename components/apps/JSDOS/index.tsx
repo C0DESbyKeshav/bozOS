@@ -1,7 +1,6 @@
 import StyledJSDOS from "components/apps/JSDOS/StyledJSDOS";
 import useJSDOS from "components/apps/JSDOS/useJSDOS";
 import type { ProcessComponentProps } from "components/system/Processes/RenderProcess";
-// eslint-disable-next-line import/no-cycle
 import { useProcesses } from "contexts/process";
 import type { JSX } from "react";
 import { useRef } from "react";

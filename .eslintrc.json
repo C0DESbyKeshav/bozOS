@@ -61,6 +61,7 @@
         "jsx": "never"
       }
     ],
+    "import/no-cycle": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {

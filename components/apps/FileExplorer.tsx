@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import FileManager from "components/system/Files/FileManager";
 import type { ProcessComponentProps } from "components/system/Processes/RenderProcess";
 import { useProcesses } from "contexts/process";

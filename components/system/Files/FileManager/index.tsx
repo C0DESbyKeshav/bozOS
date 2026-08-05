@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import FileEntry from "components/system/Files/FileEntry";
 import StyledFileEntry from "components/system/Files/FileEntry/StyledFileEntry";
 import StyledFileManager from "components/system/Files/FileManager/StyledFileManager";
