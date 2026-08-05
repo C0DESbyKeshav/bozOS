@@ -1,0 +1,17 @@
+// eslint-disable-next-line import/no-cycle
+import FileManager from "components/system/Files/FileManager";
+import type { ProcessComponentProps } from "components/system/Processes/RenderProcess";
+import { useProcesses } from "contexts/process";
+import type { JSX } from "react/jsx-runtime";
+
+const FileExplorer = ({ id }: ProcessComponentProps): JSX.Element => {
+  const {
+    processes: {
+      [id]: { url }
+    }
+  } = useProcesses();
+
+  return <FileManager directory={url || "/"} />;
+};
+
+export default FileExplorer;
