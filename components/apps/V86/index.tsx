@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import StyledV86 from "components/apps/V86/StyledV86";
 import useV86 from "components/apps/V86/useV86";
 import useV86ScreenSize from "components/apps/V86/useV86ScreenSize";

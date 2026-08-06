@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import contextFactory from "contexts/contextFactory";
 import { initialProcessContextState } from "contexts/initialContextStates";
 import type { ProcessContextState } from "contexts/process/useProcessContextState";

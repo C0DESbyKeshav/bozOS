@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import type { ProcessComponentProps } from "components/system/Processes/RenderProcess";
 import dynamic from "next/dynamic";
 
