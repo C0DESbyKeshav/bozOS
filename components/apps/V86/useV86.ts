@@ -8,15 +8,18 @@ import type {
   V86Starter,
   WindowWithV86Starter
 } from "components/apps/V86/types";
+import useTitle from "components/system/Window/useTitle";
 import { useFileSystem } from "contexts/fileSystem";
 import { extname } from "path";
 import { useCallback, useEffect, useState } from "react";
 import { bufferToUrl, cleanUpBufferUrl, loadFiles } from "utils/functions";
 
 const useV86 = (
+  id: string,
   url: string,
   screenContainer: React.MutableRefObject<HTMLDivElement | null>
 ): V86 => {
+  const { appendFileToTitle } = useTitle(id);
   const [emulator, setEmulator] = useState<V86Starter | null>(null);
   const lockMouse = useCallback(() => emulator?.lock_mouse?.(), [emulator]);
   const { fs } = useFileSystem();
@@ -25,7 +28,6 @@ const useV86 = (
     let v86: V86Starter | null = null;
     let isMounted = true;
 
-    // Guard check inside the main execution path
     if (fs && url && screenContainer?.current) {
       fs.readFile(url, (_error, contents = Buffer.from("")) => {
         if (!isMounted) return;
@@ -50,23 +52,23 @@ const useV86 = (
             ...v86Config
           });
 
-          v86.add_listener("emulator-loaded", () =>
-            cleanUpBufferUrl(bufferUrl)
-          );
+          v86.add_listener("emulator-loaded", () => {
+            appendFileToTitle(url);
+            cleanUpBufferUrl(bufferUrl);
+          });
 
           setEmulator(v86);
         });
       });
     }
 
-    // Always returns a cleanup function, resolving the ESLint error
     return () => {
       isMounted = false;
       if (v86) {
         (v86 as V86Starter).destroy?.();
       }
     };
-  }, [fs, screenContainer, url]);
+  }, [appendFileToTitle, fs, screenContainer, url]);
 
   return {
     emulator,
